@@ -32,4 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutLi.innerHTML = `<a href="#" onclick="logout(); return false;" style="color: var(--danger); margin-top: 2rem;">Logout</a>`;
         navLinks.appendChild(logoutLi);
     }
+
+    // Mobile Sidebar Setup
+    setupMobileSidebar();
 });
+
+
+function setupMobileSidebar() {
+    const mainContent = document.querySelector('.main-content');
+    if (!mainContent) return;
+
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    const sidebar = document.querySelector('.sidebar');
+
+    // Attach listener globally to any toggle button
+    document.querySelectorAll('.mobile-nav-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+}
