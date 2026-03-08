@@ -60,7 +60,7 @@ function renderTable(salesData) {
 }
 
 window.viewImage = function (imgUrl) {
-    document.getElementById('modalImage').src = 'http://localhost:5000' + imgUrl;
+    document.getElementById('modalImage').src = imgUrl;
     document.getElementById('imageModal').classList.add('active');
 }
 

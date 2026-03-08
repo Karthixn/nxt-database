@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const message = document.getElementById('loginMessage');
-    const API_BASE_URL = 'http://localhost:5000/api';
+    const API_BASE_URL = '/api';
 
     // If already logged in, redirect to dashboard
     if (localStorage.getItem('nxt_token')) {
