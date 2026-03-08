@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxT DataBase | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header" style="text-align: center;">
+            <img src="img/logo.png" alt="NxT Database Logo"
+                style="max-height: 80px; width: auto; margin-bottom: 0.5rem;">
+            <h2>NxT DataBase</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="discord-dashboard.html">Discord Sales</a></li>
+            <li><a href="games-dashboard.html">Game Sales</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="add-discord-sale.html">Add Discord Sale</a></li>
+            <li><a href="add-game-sale.html">Add Game Sale</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Overview Dashboard</h1>
+        </div>
+
+        <div class="dashboard-cards" id="statsCards">
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <div class="value" id="totalRevenue">₹0</div>
+            </div>
+            <div class="card">
+                <h3>Total Profit</h3>
+                <div class="value text-success" id="totalProfit">₹0</div>
+            </div>
+            <div class="card">
+                <h3>Discord Sales</h3>
+                <div class="value" id="discordCount">0</div>
+            </div>
+            <div class="card">
+                <h3>Game Sales</h3>
+                <div class="value" id="gameCount">0</div>
+            </div>
+        </div>
+
+        <div class="page-header mt-4">
+            <h2>Recent Sales</h2>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Item / Game</th>
+                        <th>Price</th>
+                        <th>Profit</th>
+                        <th>Dealer</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="recentSalesTableBody">
+                    <tr>
+                        <td colspan="6" style="text-align:center;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxT DataBase | Game Sales</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header" style="text-align: center;">
+            <img src="img/logo.png" alt="NxT Database Logo"
+                style="max-height: 80px; width: auto; margin-bottom: 0.5rem;">
+            <h2>NxT DataBase</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="discord-dashboard.html">Discord Sales</a></li>
+            <li><a href="games-dashboard.html" class="active">Game Sales</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="add-discord-sale.html">Add Discord Sale</a></li>
+            <li><a href="add-game-sale.html">Add Game Sale</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Game Sales</h1>
+            <a href="add-game-sale.html" class="btn-primary" style="text-decoration: none;">+ Add Sale</a>
+        </div>
+
+        <div class="filters-bar">
+            <input type="text" id="filterBuyer" class="form-control" placeholder="Search by Buyer ID...">
+            <input type="text" id="filterGame" class="form-control" placeholder="Search by Game Name...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Buyer Discord ID</th>
+                        <th>Game Name</th>
+                        <th>Price</th>
+                        <th>Dealer Cost</th>
+                        <th>Profit</th>
+                        <th>Dealer Name</th>
+                        <th>Warranty</th>
+                        <th>Payment</th>
+                        <th>Credentials</th>
+                        <th>Proof</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="gameSalesTableBody">
+                    <tr>
+                        <td colspan="12" style="text-align:center;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <img id="modalImage" src="" alt="Transaction Screenshot">
+    </div>
+
+    <!-- Credentials Modal -->
+    <div id="credentialsModal" class="image-modal" onclick="closeCredsModal(event)">
+        <div class="form-container" style="max-width: 400px; text-align: left; margin: auto;"
+            onclick="event.stopPropagation()">
+            <h3 style="margin-bottom: 1rem; color: var(--accent-color);">Account Credentials</h3>
+            <div class="form-group">
+                <label>Game ID:</label>
+                <div class="form-control" id="modalGameId"></div>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <div class="form-control" id="modalGamePassword"></div>
+            </div>
+            <button class="btn-primary mt-4" style="width: 100%;" onclick="closeCredsModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="image-modal" onclick="closeEditModal(event)">
+        <div class="form-container" style="max-width: 400px; margin: auto; text-align: left;"
+            onclick="event.stopPropagation()">
+            <h3 style="margin-bottom: 1rem; color: var(--accent-color);">Quick Edit Sale</h3>
+            <input type="hidden" id="editSaleId">
+            <div class="form-group">
+                <label>Sell Price (₹)</label>
+                <input type="number" id="editSellPrice" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Dealer Cost (₹)</label>
+                <input type="number" id="editDealerCost" class="form-control">
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn-primary" style="flex: 1;" onclick="saveEditSale()">Save</button>
+                <button class="btn-primary" style="flex: 1; background-color: var(--border-color);"
+                    onclick="closeEditModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/games.js"></script>
+</body>
+
+</html>

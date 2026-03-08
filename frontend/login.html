@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxT DataBase | Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+        }
+
+        .login-container {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <img src="img/logo.png" alt="NxT Database Logo" style="max-height: 80px; margin-bottom: 1rem;">
+        <h2>NxT DataBase Access</h2>
+        <form id="loginForm">
+            <div class="form-group" style="text-align: left;">
+                <label for="password">Admin Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter password..." required>
+            </div>
+            <button type="submit" class="btn-primary login-btn">Login</button>
+            <div id="loginMessage" class="mt-4"></div>
+        </form>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>

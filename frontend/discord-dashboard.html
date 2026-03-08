@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxT DataBase | Discord Sales</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header" style="text-align: center;">
+            <img src="img/logo.png" alt="NxT Database Logo"
+                style="max-height: 80px; width: auto; margin-bottom: 0.5rem;">
+            <h2>NxT DataBase</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="discord-dashboard.html" class="active">Discord Sales</a></li>
+            <li><a href="games-dashboard.html">Game Sales</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="add-discord-sale.html">Add Discord Sale</a></li>
+            <li><a href="add-game-sale.html">Add Game Sale</a></li>
+        </ul>
+    </aside>
+
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <img id="modalImage" src="" alt="Transaction Screenshot">
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="image-modal" onclick="closeEditModal(event)">
+        <div class="form-container" style="max-width: 400px; margin: auto;" onclick="event.stopPropagation()">
+            <h3 style="margin-bottom: 1rem; color: var(--accent-color);">Quick Edit Sale</h3>
+            <input type="hidden" id="editSaleId">
+            <div class="form-group">
+                <label>Sell Price (₹)</label>
+                <input type="number" id="editSellPrice" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Dealer Cost (₹)</label>
+                <input type="number" id="editDealerCost" class="form-control">
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn-primary" style="flex: 1;" onclick="saveEditSale()">Save</button>
+                <button class="btn-primary" style="flex: 1; background-color: var(--border-color);"
+                    onclick="closeEditModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Discord Sales</h1>
+            <a href="add-discord-sale.html" class="btn-primary" style="text-decoration: none;">+ Add Sale</a>
+        </div>
+
+        <div class="filters-bar">
+            <input type="text" id="filterUsername" class="form-control" placeholder="Search by Username...">
+            <input type="text" id="filterItem" class="form-control" placeholder="Search by Item...">
+            <input type="text" id="filterPayment" class="form-control" placeholder="Search by Payment Method...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Discord Username</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Dealer Cost</th>
+                        <th>Profit</th>
+                        <th>Dealer Name</th>
+                        <th>Warranty</th>
+                        <th>Payment</th>
+                        <th>Proof</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="discordSalesTableBody">
+                    <tr>
+                        <td colspan="11" style="text-align:center;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/discord.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxT DataBase | Add Game Sale</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header" style="text-align: center;">
+            <img src="img/logo.png" alt="NxT Database Logo"
+                style="max-height: 80px; width: auto; margin-bottom: 0.5rem;">
+            <h2>NxT DataBase</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="discord-dashboard.html">Discord Sales</a></li>
+            <li><a href="games-dashboard.html">Game Sales</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="add-discord-sale.html">Add Discord Sale</a></li>
+            <li><a href="add-game-sale.html" class="active">Add Game Sale</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Add New Game Sale</h1>
+        </div>
+
+        <div class="form-container">
+            <form id="addGameSaleForm">
+                <div class="form-group row">
+                    <div>
+                        <label for="buyerDiscordId">Buyer Discord ID</label>
+                        <input type="text" id="buyerDiscordId" name="buyerDiscordId" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="gameName">Game Name</label>
+                        <input type="text" id="gameName" name="gameName" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label for="gameId">Game ID / Email</label>
+                        <input type="text" id="gameId" name="gameId" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="gamePassword">Game Password</label>
+                        <input type="text" id="gamePassword" name="gamePassword" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label for="sellPrice">Sell Price (₹)</label>
+                        <input type="number" id="sellPrice" name="sellPrice" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="dealerCost">Dealer Cost (₹)</label>
+                        <input type="number" id="dealerCost" name="dealerCost" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label for="profitPreview">Estimated Profit</label>
+                        <div id="profitPreview" class="form-control text-success"
+                            style="background-color: var(--bg-color); border: none; font-weight: bold;">₹0</div>
+                    </div>
+                    <div>
+                        <label for="dealerName">Dealer Name</label>
+                        <input type="text" id="dealerName" name="dealerName" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label for="warrantyAvailable">Warranty Available?</label>
+                        <select id="warrantyAvailable" name="warrantyAvailable" class="form-control">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="warrantyDays">Warranty Days</label>
+                        <input type="number" id="warrantyDays" name="warrantyDays" class="form-control" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label for="paymentMethod">Payment Method</label>
+                        <input type="text" id="paymentMethod" name="paymentMethod" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="transactionImage">Payment Screenshot</label>
+                        <input type="file" id="transactionImage" name="transactionImage" class="form-control"
+                            accept="image/*" required>
+                    </div>
+                </div>
+
+                <div class="form-group" id="imagePreviewContainer"
+                    style="display: none; text-align: center; margin-bottom: 1.5rem;">
+                    <p class="text-muted mb-4">Image Preview</p>
+                    <img id="imagePreview" src="" alt="Preview"
+                        style="max-height: 200px; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+                </div>
+
+                <button type="submit" class="btn-primary" id="submitBtn">Add Game Sale</button>
+                <div id="formMessage" class="mt-4"></div>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/add-game.js"></script>
+</body>
+
+</html>
